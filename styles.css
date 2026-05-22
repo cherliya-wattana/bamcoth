@@ -1,0 +1,530 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Prompt:wght@500;600;700;800;900&family=Sarabun:wght@400;500;600;700;800&display=swap");
+
+@import "tailwindcss";
+
+body {
+  margin: 0;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  @page slide-deck {
+    size: 13.333in 7.5in;
+    margin: 0;
+  }
+
+  body {
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-document {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .print-page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    width: calc(210mm - 20mm) !important;
+    height: calc(297mm - 20mm) !important;
+    min-height: calc(297mm - 20mm) !important;
+    page-break-after: always;
+    break-after: page;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .print-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .slide-page {
+    background: white !important;
+    padding: 0 !important;
+  }
+
+  .slide-page .no-print {
+    display: none !important;
+  }
+
+  .slide-page .slide-screen-view {
+    display: none !important;
+  }
+
+  .slide-page .slide-print-deck {
+    display: block !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .slide-page .slide-print-host {
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .slide-page .slide-container {
+    width: 1280px !important;
+    height: 720px !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .slide-page .slide-print-page {
+    page: slide-deck;
+    width: 13.333in !important;
+    height: 7.5in !important;
+    min-height: 7.5in !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .slide-page .slide-print-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .slide-page .slide-print-page,
+  .slide-page .slide-print-page * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+.slide-print-deck {
+  display: none;
+}
+
+.slide-page,
+.slide-container {
+  font-family: "Sarabun", "Noto Sans Thai", sans-serif;
+}
+
+.slide-heading,
+.slide-container h1,
+.slide-container h2,
+.slide-container h3 {
+  font-family: "Prompt", "Sarabun", sans-serif;
+  letter-spacing: 0;
+}
+
+.slide-input:disabled {
+  cursor: default;
+}
+
+.slide-presenting .slide-input {
+  border-color: transparent !important;
+  box-shadow: none !important;
+  resize: none;
+}
+
+.slide-presenting .slide-editable {
+  display: none !important;
+}
+
+.slide-container table th,
+.slide-container table td {
+  line-height: 1.2;
+}
+
+.slide-export-header,
+.slide-export-body {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@media screen {
+  .print-document {
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .print-page {
+    width: 794px;
+    height: 1123px;
+    min-height: 1123px;
+    padding: 28px 24px;
+    margin: 0 auto 24px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .document-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding-top: 20px;
+  }
+}
+
+.document-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  font-size: 13.5px;
+  line-height: 1.28;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.print-document,
+.print-document * {
+  font-family: "Angsana New", "Noto Sans Thai", serif !important;
+  color: #000 !important;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-break: anywhere;
+}
+
+.print-document th,
+.print-document td {
+  border-color: #000 !important;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.print-document .document-body .document-section-title {
+  font-size: 13.5px !important;
+  line-height: 1.24 !important;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.print-document .document-body h4 {
+  font-size: 13.5px !important;
+  line-height: 1.24 !important;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.print-document .document-body p,
+.print-document .document-body span,
+.print-document .document-body li {
+  font-size: 13.5px !important;
+  line-height: 1.28 !important;
+}
+
+.print-document .document-header,
+.print-document .document-header *,
+.print-document .document-signatures,
+.print-document .document-signatures *,
+.print-document .document-footer,
+.print-document .document-footer * {
+  font-size: 13.5px !important;
+  line-height: 1.24 !important;
+}
+
+.document-header {
+  flex-shrink: 0;
+}
+
+.document-header table,
+.document-body,
+.document-signatures {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.case-progress-preview,
+.case-progress-preview * {
+  font-size: 13.5px !important;
+  line-height: 1.28 !important;
+}
+
+.document-case-item {
+  margin-top: 2px;
+}
+
+.document-case-line {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr);
+  column-gap: 10px;
+  align-items: start;
+}
+
+.document-case-detail {
+  margin-left: 138px;
+}
+
+.document-case-title {
+  font-weight: 700;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.purpose-box {
+  display: inline-flex;
+  width: fit-content;
+  border: 3px double #000 !important;
+}
+
+.print-document .document-header .purpose-box,
+.print-document .document-header .purpose-box * {
+  font-size: 12px !important;
+  line-height: 1.15 !important;
+}
+
+.print-document .document-header,
+.print-document .document-header * {
+  color: #000 !important;
+  -webkit-text-fill-color: #000;
+  font-variant-emoji: text;
+}
+
+.document-recipient-options {
+  margin-left: 34px;
+}
+
+.document-topic-box {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.document-topic-grid {
+  display: grid;
+  grid-template-columns: max-content max-content max-content max-content max-content;
+  align-items: baseline;
+  column-gap: 8px;
+  row-gap: 2px;
+  font-size: 13.5px !important;
+  line-height: 1.2 !important;
+  width: 100%;
+}
+
+.document-topic-grid,
+.document-topic-grid * {
+  font-size: 13.5px !important;
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-break: auto !important;
+}
+
+.print-document .document-header .document-topic-grid,
+.print-document .document-header .document-topic-grid * {
+  font-size: 13.5px !important;
+}
+
+.document-topic-label {
+  flex: 0 0 auto;
+  font-weight: 700;
+}
+
+.document-topic-item {
+  min-width: 0;
+}
+
+.document-topic-debtor {
+  min-width: 0;
+}
+
+.document-topic-transfer {
+  margin-left: 0;
+}
+
+.document-topic-line {
+  display: inline-block;
+  border-bottom: 1px dotted #000;
+  padding: 0 2px;
+  vertical-align: baseline;
+  font-weight: 400 !important;
+}
+
+.document-topic-name {
+  width: 270px;
+  min-width: 270px;
+  max-width: 270px;
+}
+
+.document-topic-short {
+  width: 46px;
+  min-width: 46px;
+  max-width: 46px;
+}
+
+.document-topic-date {
+  min-width: 72px;
+}
+
+.document-objective-label {
+  width: 146px;
+  min-width: 146px;
+}
+
+.document-objective-label,
+.document-objective-label * {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-break: auto !important;
+}
+
+.document-office-row {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: 12px;
+  white-space: nowrap;
+}
+
+.document-office-row * {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-break: auto !important;
+}
+
+.document-inline-value {
+  display: inline-block;
+  min-width: 48px;
+  border-bottom: 1px dotted #000;
+  padding: 0 2px;
+  font-weight: 400 !important;
+}
+
+.document-header .document-topic-line,
+.document-header .document-inline-value {
+  border-bottom: 1px solid #000;
+}
+
+.document-debt-template {
+  table-layout: fixed;
+  width: 100%;
+  font-size: 10.5px;
+  line-height: 1.12;
+}
+
+.document-debt-template th,
+.document-debt-template td {
+  width: auto;
+  min-height: 18px;
+  height: 18px;
+  padding: 2px 2px;
+  vertical-align: top;
+  text-align: center;
+  font-size: 10.5px !important;
+  line-height: 1.12 !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+}
+
+.document-debt-template td {
+  text-align: left;
+}
+
+.document-compact-table {
+  table-layout: fixed;
+  width: 100%;
+  font-size: 10.5px;
+  line-height: 1.12;
+}
+
+.document-compact-table tr,
+.document-debt-template tr {
+  height: 18px;
+}
+
+.document-compact-table th,
+.document-compact-table td {
+  min-height: 18px;
+  height: 18px;
+  padding: 2px 3px !important;
+  font-size: 10.5px !important;
+  line-height: 1.12 !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+}
+
+.document-compact-table *,
+.document-debt-template * {
+  font-size: 10.5px !important;
+  line-height: 1.12 !important;
+}
+
+.print-document .debt-management-summary {
+  border: 0 !important;
+  background: #fff !important;
+  padding: 0 !important;
+}
+
+.print-document .debt-management-summary h4,
+.print-document .debt-management-summary span,
+.print-document .debt-management-summary td {
+  font-size: 13.5px !important;
+  line-height: 1.24 !important;
+}
+
+.print-document .debt-management-summary table,
+.print-document .debt-management-summary tr,
+.print-document .debt-management-summary td {
+  border: 0 !important;
+}
+
+.print-document .debt-management-summary td {
+  padding: 1px 2px !important;
+}
+
+.document-signatures {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  flex-shrink: 0;
+}
+
+.signature-item {
+  display: grid;
+  gap: 3px;
+  justify-items: center;
+  align-content: start;
+}
+
+.signature-sign-line {
+  width: 92%;
+  min-height: 18px;
+  border-bottom: 1px dotted #000;
+}
+
+.signature-name-line {
+  width: 92%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.signature-name-line span {
+  flex: 1;
+  min-height: 16px;
+}
+
+.document-footer {
+  flex-shrink: 0;
+}
+
+.print-document th,
+.print-document .bg-\[\#e6f3fc\],
+.print-document .bg-\[\#f8fcff\] {
+  background: #fff !important;
+}
